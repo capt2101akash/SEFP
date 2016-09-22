@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Hello World</title>
+	</head>
+	<body>
+
+		<div id="count"> </div>
+		<button id="clickMe">Click Me</button>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			var socket = io('http://localhost:5050');
+			socket.on('count',function(data){
+				document.getElementById('count').innerHTML = data.count;
+			});
+		
+			document.getElementById('clickMe').onclick = function(){
+				socket.emit('increase');
+			};
+		</script>
+	</body>
+</html>
