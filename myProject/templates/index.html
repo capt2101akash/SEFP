@@ -88,7 +88,7 @@
           
           <p class="forgot"><a href="#">Forgot Password?</a></p>
           
-          <input type = "button" value="Log In" class="button button-block" id = "login"/>
+          <input type = "button" value="Log In" class="button button-block" id = "log_in"/>
           
           </form>
 
@@ -161,17 +161,36 @@
       else    
         window.location.reload();
       });
-      document.getElementById('login').onclick=function(){
+      document.getElementById('log_in').onclick=function(){
         var loginid = document.getElementById('loginid').value;
+        //var loginid = document.login.loginid.value;
         var loginpass = document.getElementById('loginpass').value;
+        //var loginpass = document.login.loginpass.value;
+        //console.log('loginpass: ',loginpass);
         if(loginid!=''&&loginpass!='')
         {
           socket.emit('login_check',{loginid:loginid,loginpass:loginpass});
         }
-        //else{
-        //  alert("Fill all the fields.");
-        //}
+        else{
+          alert("Fill all the fields.");
+        }
       };
+      socket.on('login_success', function(data){
+        if(alert(data.msg)){}
+        else
+          window.location.href="/user";
+      });
+      socket.on('failure',function(data){
+        if(window.alert(data.msg)){}
+          else
+            window.location.reload();
+        //alert(data.msg);
+      });
+      socket.on('hacker',function(data){
+        if(alert(data.msg)){}
+        else
+          window.location.reload();
+      });
   </script>  
   
   </body>
