@@ -1,20 +1,16 @@
 var fs = require('fs'),
     multiparty = require('multiparty'),
     walk = require('walk'),
-    Config = require('../config/config');
+    Config = require('../config/config'),
+    inert = require('inert'),
+    vision = require('vision');
 /*
  * Display upload form
  */
 
 exports.display_form = {
-    handler: function(requestuest, reply) {
-        reply(
-            '<form action="/uploadFile" method="post" enctype="multipart/form-data">' +
-            '<input type="file" name="file">' +
-            '<input type="submit" value="Upload">' +
-            '<a href = "/fileList" ><button type="button" class="button button-block">List Uploaded files</button></a>'+
-            '</form>' 
-        );
+    handler: function(request, reply) {
+        reply.file('user.html');
     }
 };
 
@@ -28,9 +24,9 @@ exports.uploadFile = {
         output: 'stream',
         parse: false
     },
-    handler: function(requset, reply) {
+    handler: function(request, reply) {
         var form = new multiparty.Form();
-        form.parse(requset.payload, function(err, fields, files) {
+        form.parse(request.payload, function(err, fields, files) {
             if (err) return reply(err);
             else upload(files, reply);
         });
@@ -130,10 +126,16 @@ exports.fileList = {
             files.push(stat.name);
             next();
         });
-
         walker.on('end', function() {
-            return reply(files);
-        });
-    }
-};
+            //for(i=0;i<files.length;i++)
+            //{
+              //  if(files.length===4){
+                //console.log(end.length);
+               return reply(files + "<br />");
+               // }
+            });
+            //reply(for(i=0;i<files.length;i++){
+            //    "<ul><li>"+files[i]+"</li></ul>"
+        }
+    };
 

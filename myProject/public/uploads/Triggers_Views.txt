@@ -1,0 +1,29 @@
+
+
+
+
+1. Whenever an aircraft with crusing range greater than 10000 is inserted into Aircraft table, insert an employee record in Employeess table whose name is John with id 12345678 and salary 500000 should be inserted.
+
+
+
+2. A trigger that raises an error (and ignores the insert/update) when you try to insert a duplicate aircraft name or try to update an existing aircraft name so that duplicate is generated (trigger will work before the insert/update)
+
+
+3. Create a view Pilots_Aircraft which contains number of pilots exsisting for each and every aircraft.
+
+
+
+4. Create a view Nonpilot which contains the employers who are not certified to fly where  salary of them is more than the
+average salary for pilots. .
+
+
+
+5. A Trigger that monitors the cerfitied table and when number of a pilot certifications exceeds 6, it updates the corresponding employess name in Employess table appending '- Maxlimit'
+
+
+
+
+6.create a view that Identify the routes that can be piloted by every pilot who makes more than $100,000.
+
+
+

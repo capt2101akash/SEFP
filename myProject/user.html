@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<title>Upload your Videos</title>
+
+		<!-- Google web fonts -->
+		<link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+
+		<!-- The main CSS file -->
+		<link href="assets1/css/style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<h2>Upload your videos here</h2>
+		<form id="upload" method="post" action = "/uploadFile" enctype="multipart/form-data">
+			<div id="drop">
+				Drop Here
+
+				<a>Browse</a>
+				<input type="file" name="file" multiple />
+			</div>
+
+			<ul>
+				<!-- The file uploads will be shown here -->
+			</ul>
+			<a href = "/fileList" ><button type="button" class="button button-block">List Uploaded files</button></a>
+
+		</form>
+
+		<footer>
+            
+        </footer>
+        
+		<!-- JavaScript Includes -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="assets1/js/jquery.knob.js"></script>
+
+		<!-- jQuery File Upload Dependencies -->
+		<script src="assets1/js/jquery.ui.widget.js"></script>
+		<script src="assets1/js/jquery.iframe-transport.js"></script>
+		<script src="assets1/js/jquery.fileupload.js"></script>
+		
+		<!-- Our main JS file -->
+		<script src="assets1/js/script.js"></script>
+
+
+		<!-- Only used for the demos. Please ignore and remove. --> 
+        <script src="http://cdn.tutorialzine.com/misc/enhance/v1.js" async></script>
+
+	</body>
+</html>

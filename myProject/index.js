@@ -43,6 +43,7 @@ io.on('connection',function(socket){
 		});
 	//	io.sockets.emit('success',{msg:'signup successfull'});
 	});
+	
 	socket.on('login_check',function(data){
 		var loginid = data.loginid;
 		var loginpass = data.loginpass;
@@ -122,7 +123,7 @@ server.register([require('vision'),require('inert'),require('hapi-auth-basic')],
                 reply('hello, ' + request.auth.credentials.name);
             }
         }
-    });*/
+    });	*/
 
 	server.route({
 		method:'GET',
@@ -160,6 +161,26 @@ server.register([require('vision'),require('inert'),require('hapi-auth-basic')],
 		handler: {
 			directory: {
 				path: 'templates/assets/js',
+				listing: true
+			}
+		}
+	});
+	server.route({
+		method:'GET',
+		path:'/assets1/css/{filename*}',
+		handler: {
+			directory: {
+				path: 'templates/assets1/css',
+				listing: true
+			}
+		}
+	});
+	server.route({
+		method:'GET',
+		path:'/assets1/js/{filename*}',
+		handler: {
+			directory: {
+				path: 'templates/assets1/js',
 				listing: true
 			}
 		}
